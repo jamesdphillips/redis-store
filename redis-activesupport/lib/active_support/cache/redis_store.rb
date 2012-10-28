@@ -184,6 +184,7 @@ module ActiveSupport
         end
         
         def method_missing(sym, *args)
+          Rails.debug("Call #{sym} args #{args}")
           @data.send(sym, *args) if @data.respond_to?(sym)
         end
     end
