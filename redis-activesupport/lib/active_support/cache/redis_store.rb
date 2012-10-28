@@ -182,6 +182,10 @@ module ActiveSupport
             pattern
           end
         end
+        
+        def method_missing(sym, *args)
+          @data.send(sym, *args) if @data.respond_to?(sym)
+        end
     end
   end
 end
